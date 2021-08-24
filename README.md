@@ -5,7 +5,7 @@ Blog link: working on it
 - Mapping-Injection: Just another Windows Process Injection.
 - Mapping injection is a process injection technique that avoids the usage of common monitored syscall VirtualAllocEx and WriteProcessMemory.
 - This can be achieved by using the Syscall MapViewOfFile2() and some preliminary steps to “prepare” the memory with the required shellcode.
-- Works fine both in x64/x86.
+- Works fine both on x64/x86.
 - Supported OS: 
 	* **Windows 10 / Windows Server 2016, version 1703 (build 10.0.15063) and above versions.**
 - The function "MapViewOfFile2()", I could not find any definition of it even in the p/invoke website.
