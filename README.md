@@ -4,17 +4,17 @@ Blog link: working on it
 
 - Mapping-Injection: Just another Windows Process Injection.
 - Mapping injection is a process injection technique that avoids the usage of common monitored syscall VirtualAllocEx and WriteProcessMemory.
-- This can be achieved by using the Syscall MapViewOfFile2() and some preliminary steps in order to “prepare” the memory with the required shellcode.
+- This can be achieved by using the Syscall MapViewOfFile2() and some preliminary steps to “prepare” the memory with the required shellcode.
 - Works fine both in x64/x86.
 - Supported OS: 
 	* Windows 10 / Windows Server 2016, version 1703 (build 10.0.15063) and above versions
-- The function "MapViewOfFile2()", I could not find any definition of it even in p/invoke website.
+- The function "MapViewOfFile2()", I could not find any definition of it even in the p/invoke website.
 	* So I convert the [original version](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile2) to C#，
-	* But，unluckily ,that is not working.
-	* The [page](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile2) show that "MapViewOfFile2()" is in kernel32.dll, but acttually you'll get the error:cannot find the entry point of the funciton.
-	* Looking at the definition of MapViewOfFile2() in memoryapi.h i just noticed that it's just a wrapper for the function MapViewOfFileNuma2().
+	* But, unluckily, that is not working.
+	* The [page](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile2) show that "MapViewOfFile2()" is in kernel32.dll, but actually you'll get the error: cannot find the entry point of the function.
+	* Looking at the definition of MapViewOfFile2() in the "memoryapi.h"  and I just noticed that it's just a wrapper for the function MapViewOfFileNuma2().
 	* The function MapViewOfFileNuma2() is imported from Kernelbase.dll or Api-ms-win-core-memory-l1-1-5.dll.
-	* I have no idea the diffences of "MapViewOfFileNuma2" between these two dlls,feel free to tell me~
+	* I have no idea the differences of "MapViewOfFileNuma2" between these two DLLs, feel free to tell me~
 	* In this project, I use Kernelbase.dll.
 - And here is the definition of MapViewOfFileNuma2
 ```
@@ -27,7 +27,7 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
                                            ULONG aPreferredNode);
 
 ```
-	* Comparing with MapViewOfFile2, you could see there are ,indeed a little diffent - ULONG aPreferredNode.
+	* Comparing with MapViewOfFile2, you could see there are, indeed a little different - ULONG aPreferredNode.
 	* Its preferred node set to NUMA_NO_PREFERRED_NODE and NUMA_NO_PREFERRED_NODE = 0xffffffff;
 - The original shellcode is a messagebox.
 ```
@@ -68,8 +68,8 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
 ## Usage
 1. Replace the shellcode with your own.
 	![avatar](https://raw.githubusercontent.com/Kara-4search/ProjectPics/main/MappingInject_shellcode.png)
-2. Set the process name your want to inject
-	* default name in the project is powershell.
+2. Set the process name you want to inject
+	* default name in the project is Powershell.
 	![avatar](https://raw.githubusercontent.com/Kara-4search/ProjectPics/main/MappingInject_processname.png)
 	
 	
@@ -77,7 +77,7 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
 - Update with "Early Bird"
 
 
-## Update histroy
+## Update history
 - NONE	
 
 
