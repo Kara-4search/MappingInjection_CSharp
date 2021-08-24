@@ -27,8 +27,8 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
                                            ULONG aPreferredNode);
 
 ```
-	* Comparing with MapViewOfFile2, you could see there are, indeed a little different - ULONG aPreferredNode.
-	* Its preferred node set to NUMA_NO_PREFERRED_NODE and NUMA_NO_PREFERRED_NODE = 0xffffffff;
+- Comparing with MapViewOfFile2, you could see there are, indeed a little different - ULONG aPreferredNode.
+- Its preferred node set to NUMA_NO_PREFERRED_NODE and NUMA_NO_PREFERRED_NODE = 0xffffffff;
 - The original shellcode is a messagebox.
 ```
             /*   Messagebox shellcode   */
