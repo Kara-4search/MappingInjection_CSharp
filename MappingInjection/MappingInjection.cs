@@ -82,9 +82,13 @@ namespace MappingInjection
                 out RemoteThread_id);
 
             Console.WriteLine(RemoteThread_id);
+            UnmapViewOfFile(MapViewOfFile_address);
+            CloseHandle(OpenProcess_handle);
+
+
             if (RemoteThread_id != IntPtr.Zero)
             {
-                return true;
+                 return true;
             }
             else
             {

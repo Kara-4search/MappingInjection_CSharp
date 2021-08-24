@@ -75,5 +75,12 @@ namespace MappingInjection
             IntPtr lpParameter, 
             uint dwCreationFlags, 
             out IntPtr lpThreadId);
-        }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool UnmapViewOfFile(IntPtr lpBaseAddress);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool CloseHandle(IntPtr hObject);
+    }
 }
