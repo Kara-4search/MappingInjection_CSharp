@@ -31,7 +31,7 @@ namespace MappingInjection
         }
         static void Main(string[] args)
         {
-            int processpid = FindProcessIDByName("explorer");
+            int processpid = FindProcessIDByName("powershell");
             // Console.WriteLine(processpid);
             // System.Threading.Thread.Sleep(50000);
             if (processpid != 0)

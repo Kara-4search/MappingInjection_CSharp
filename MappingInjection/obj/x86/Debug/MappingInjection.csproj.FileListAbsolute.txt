@@ -4,3 +4,4 @@ C:\Project\Projects\Project_MappingInjection\MappingInjection\MappingInjection\b
 C:\Project\Projects\Project_MappingInjection\MappingInjection\MappingInjection\obj\x86\Debug\MappingInjection.csproj.CoreCompileInputs.cache
 C:\Project\Projects\Project_MappingInjection\MappingInjection\MappingInjection\obj\x86\Debug\MappingInjection.exe
 C:\Project\Projects\Project_MappingInjection\MappingInjection\MappingInjection\obj\x86\Debug\MappingInjection.pdb
+C:\Project\Projects\Project_MappingInjection\MappingInjection\MappingInjection\obj\x86\Debug\MappingInjection.csprojAssemblyReference.cache
