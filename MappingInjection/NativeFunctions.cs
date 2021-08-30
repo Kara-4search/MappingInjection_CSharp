@@ -74,7 +74,7 @@ namespace MappingInjection
             IntPtr lpStartAddress,
             IntPtr lpParameter, 
             uint dwCreationFlags, 
-            out IntPtr lpThreadId);
+            out uint lpThreadId);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool UnmapViewOfFile(IntPtr lpBaseAddress);
@@ -82,5 +82,11 @@ namespace MappingInjection
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CloseHandle(IntPtr hObject);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern UInt32 QueueUserAPC(IntPtr pfnAPC, IntPtr hThread, UInt32 dwData);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern uint ResumeThread(IntPtr hThread);
     }
 }

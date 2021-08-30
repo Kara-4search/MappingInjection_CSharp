@@ -70,6 +70,12 @@ namespace MappingInjection
             Synchronize = 0x00100000
         }
 
-
+        [Flags]
+        public enum CreationFlags : uint
+        {
+            RunImmediately = 0,
+            CREATE_SUSPENDED = 0x00000004,
+            STACK_SIZE_PARAM_IS_A_RESERVATION = 0x00010000
+        }
     }
 }

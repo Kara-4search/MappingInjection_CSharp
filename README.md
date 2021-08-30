@@ -75,11 +75,13 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
 	![avatar](https://raw.githubusercontent.com/Kara-4search/ProjectPics/main/MappingInject_messagebox.png)
 	
 ## TO-DO list
-- Update with "Early Bird"
+- Update with "Early Bird" - DONE
+	* Base on my another project(https://github.com/Kara-4search/EarlyBirdInjection_CSharp)
+	* All in "MappingEarlyBirdInjection.cs".
 
 
 ## Update history
-- NONE	
+- Update with "Early Bird" process injection - 20210830
 
 
 ## Reference link:

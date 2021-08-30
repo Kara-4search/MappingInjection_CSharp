@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MappingInjection
 {
     class Program
@@ -31,12 +32,12 @@ namespace MappingInjection
         }
         static void Main(string[] args)
         {
-            int processpid = FindProcessIDByName("powershell");
+            int processpid = FindProcessIDByName("notepad");
             // Console.WriteLine(processpid);
             // System.Threading.Thread.Sleep(50000);
             if (processpid != 0)
             {
-                MappingInjection.MappingInject(processpid);
+                MappingEarlyBirdInjection.MappingEarlyBirdInject(processpid);
             }
         }
     }

