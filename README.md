@@ -83,7 +83,7 @@ WINBASEAPI PVOID WINAPI MapViewOfFileNuma2(HANDLE aFileMapping, HANDLE aProcess,
 ## Update history
 - Update with "Early Bird" process injection - 20210830
 - Fix bugs which could make the program fail to inject(Both MappingEarlyBirdInjection and MappingInjection) - 20211120
-* haven’t test that in X86 thougth
+	* Haven’t test that in X86 thougth
 
 
 ## Reference link:
