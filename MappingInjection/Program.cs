@@ -16,14 +16,14 @@ namespace MappingInjection
 
             Process[] processlist = Process.GetProcesses();
 
-            foreach (Process p in processlist)
+            foreach (Process process_instance in processlist)
             {
                 // Console.WriteLine("Process: {0} ID: {1}", p.ProcessName, p.Id);
-                if (p.ProcessName.ToLower() == processname)
+                if (process_instance.ProcessName.ToLower() == processname)
                 {
                     // Console.WriteLine("Find: {0}", p.Id);
                     // System.Threading.Thread.Sleep(50000);
-                    processpid = p.Id;
+                    processpid = process_instance.Id;
                     return processpid;
                 }
                 // System.Threading.Thread.Sleep(100);
@@ -32,12 +32,13 @@ namespace MappingInjection
         }
         static void Main(string[] args)
         {
-            int processpid = FindProcessIDByName("notepad");
+            int processpid = FindProcessIDByName("powershell");
             // Console.WriteLine(processpid);
             // System.Threading.Thread.Sleep(50000);
             if (processpid != 0)
             {
-                MappingEarlyBirdInjection.MappingEarlyBirdInject(processpid);
+                // MappingEarlyBirdInjection.MappingEarlyBirdInject(processpid);
+                MappingInjection.MappingInject(processpid);
             }
         }
     }

@@ -70,7 +70,7 @@ namespace MappingInjection
                 Process_handle,
                 IntPtr.Zero,
                 0,
-                (IntPtr)0xfff,
+                MapRemote_address,
                 IntPtr.Zero,
                 (uint)CreationFlags.CREATE_SUSPENDED,
                 out Thread_id);
